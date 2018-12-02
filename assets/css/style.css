@@ -1,0 +1,11 @@
+body {
+    background: url('../images/denzel.png');
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    background-position: right top;
+}
+
+#section {
+    height:80vh;
+    width: 50vw;
+}
