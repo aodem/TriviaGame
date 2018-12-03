@@ -1,11 +1,27 @@
 body {
-    background: url('../images/denzel.png');
-    background-repeat: no-repeat;
-    background-size: 50% 100%;
-    background-position: right top;
+    background: url('../images/science.png'), url('../images/denzel.png');
+    background-repeat: no-repeat, no-repeat;
+    background-size: 50vw 100vh;
+    background-position: left top, right top;
+    height: 100vh;
+    width: 100vw;
+}
+
+button {
+    padding: 0;
+    margin: 1vh auto;
+    width: 30vw;
+    background: #EC3C37;
 }
 
 #section {
     height:80vh;
     width: 50vw;
+    border: 0.5vw solid red;
+    background: bisque;
+}
+
+#section_two {
+    height: 75vh;
+    width: 30vw;
 }
