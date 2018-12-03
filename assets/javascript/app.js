@@ -60,4 +60,20 @@ var trivia = {
             myADiv(value2[i]);
         }
     },
+    answerCheck: (click, obj) => {
+        console.log(click);
+        if (click.text() === obj.correctAnswer()) {
+            console.log(click.text());
+        } else {
+            console.log(1 < 0);
+        }
+    },
 };
+
+
+$(document).on("click", "button", function () {
+    trivia.answerCheck($(this), trivia.qEight);
+})
+
+
+
