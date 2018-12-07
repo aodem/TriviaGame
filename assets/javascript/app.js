@@ -64,7 +64,7 @@ $(document).ready(function () {
                 }
             myQDiv(value1);
 
-            for (i = 0; i < value2.length; i++) {
+            for (let i = 0; i < value2.length; i++) {
                 myADiv(value2[i]);
             }
         },
@@ -77,7 +77,7 @@ $(document).ready(function () {
                 clearInterval(intervalId2);
                 trivia.slideReset();
                 trivia.interval();
-                timer = 21
+                
             } else if (click.text() !== obj.correctAnswer()){
                 userIncorrect++
                 console.log(1 < 0);
@@ -85,7 +85,7 @@ $(document).ready(function () {
                 clearInterval(intervalId2);
                 trivia.slideReset();
                 trivia.interval();
-                timer = 21;
+            
             }
 
         },
@@ -140,7 +140,7 @@ $(document).ready(function () {
             $('#timer').hide();
         },
         endGameScreen: function(){
-            //create a new page that displays the game outcome a new background and generates a restart button to start the game over.
+            //create a new page that displays the game outcome a new background, displays chuck norris joke and generates a restart button to start the game over.
             var queryURL = "https://api.chucknorris.io/jokes/random"
 
             $("<div>").appendTo("#slide_entry").html("<p class='space'>" + "Answers Correct: " + userCorrect + "</p>" + "<p class='space'>" + "Answers Incorrect: " + userIncorrect + "</p>");
@@ -173,7 +173,6 @@ $(document).ready(function () {
         }
     };
 
-// $(document).ready(function () {
     trivia.splashScreen();
 
     $(document).on("keyup", function(e){
@@ -187,6 +186,7 @@ $(document).ready(function () {
     $(document).on("click", "#restart", trivia.splashScreen);
 
     $(document).on("click", ".slideButton", function () {
+        timer = 21;
         console.log(trivia.objarray[trivia.indexslide], $(this).text(), trivia.objarray[trivia.indexslide].correctAnswer());
         trivia.answerCheck($(this), trivia.objarray[trivia.indexslide]);
         
