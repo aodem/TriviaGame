@@ -26,8 +26,16 @@ section {
     padding: 0;
     border: 5px solid red;
 }
+.space {
+    background: tomato;
+    width: 100%;
+    text-align: center;
+}
 
-
+.norris{
+    margin-top: 3vh;
+    margin-left: -.2vw;
+}
 
 #clock{
     line-height: 2.5;
