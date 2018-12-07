@@ -72,31 +72,42 @@ var trivia = {
         console.log(click);
         if (click.text() === obj.correctAnswer()) {
             console.log(click.text());
+            userCorrect++
             clearInterval(intervalId);
             clearInterval(intervalId2);
             trivia.slideReset();
             trivia.interval();
             timer = 21
-        } else {
+        } else if (click.text() !== obj.correctAnswer()){
+            userIncorrect++
             console.log(1 < 0);
             clearInterval(intervalId);
             clearInterval(intervalId2);
             trivia.slideReset();
             trivia.interval();
             timer = 21;
-        }
-    },
+            }
+
+        },
     slideChange: function(){
         $("#slide_entry").empty();
         var slideObj = trivia.objarray[trivia.indexslide];
         console.log(slideObj);
         trivia.questionSlide(slideObj.question, slideObj.possibleAnswers);
         console.log(trivia.indexslide);
-        trivia.indexslide++
+        // trivia.indexslide++
     },
     slideReset: function() {
         $("#slide_entry").empty();
         trivia.indexslide++
+        if (trivia.indexslide === 8) {
+            //load the ending page that contains the scores and a restart button that will start the game over again. 
+            alert("ding ding");
+            trivia.indexslide = 0;
+            $("#slide_entry").empty();
+            trivia.endGameScreen();
+            return
+        }
     },
     interval: function() {
         trivia.slideChange();
@@ -112,13 +123,37 @@ var trivia = {
             timer = 21;
             alert("Too Slow!")
         }
+    },
+    splashScreen: function(){
+        //the will create the splash page with the game instructions and then starts the game. 
+        $("<button>").appendTo("#slide_entry").text("press to start!") 
+    },
+    endGameScreen: function(){
+        //create a new page that displays the game outcome a new background and generates a restart button to start the game over.
+        var endNotes = $("<div>");
+        endNotes.append().html("<p>" + "Answers Correct: " + userCorrect + "</p>");
+        endNotes.append().html("<p>" + "Answers Incorrect: " + userIncorrect + "</p>");
+        $("#slide_entry").append(endNotes);
     }
 };
 
+$(document).ready(function () {
+    trivia.splashScreen();
+    //use chuck norris api for correct answers
 
+    // $("#game").hide();
 
-$(document).on("click", "button", function () {
-    console.log(trivia.objarray[trivia.indexslide], $(this).text(), trivia.objarray[trivia.indexslide].correctAnswer());
-    trivia.answerCheck($(this), trivia.objarray[trivia.indexslide]);
+    // $(document).on("keyup", function(e){
+    //     if(e.keycode === 32){
+    //         $("#game").show();
+    //         $("#splash").empty();
+    //     }
+    // })
+
+    $(document).on("click", "button", function () {
+        console.log(trivia.objarray[trivia.indexslide], $(this).text(), trivia.objarray[trivia.indexslide].correctAnswer());
+        trivia.answerCheck($(this), trivia.objarray[trivia.indexslide]);
+        
+    })
+
 })
-

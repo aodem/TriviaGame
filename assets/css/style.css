@@ -14,6 +14,21 @@ button {
     background: #EC3C37;
 }
 
+section {
+    text-align: center;
+    width: 50vw;
+    height: 30vh;
+    position: relative;
+    top: 25vh;
+    left: 20vw;
+    background: whitesmoke;
+    margin: 0;
+    padding: 0;
+    border: 5px solid red;
+}
+
+
+
 #clock{
     line-height: 2.5;
     font-size: 2rem;
@@ -36,6 +51,21 @@ button {
     text-align: center;
     background: whitesmoke;
     border-radius: 50%;
-    border: 0.5vw solid #ff7675;
-    
+    border: 0.5vw solid #ff7675;   
+}
+
+#splash {
+    height: 100vh;
+    width: 100vw;
+    background-color: whitesmoke;
+}
+
+#splashPattern {
+    height: 100vh;
+    width: 100vw;
+    background: url('../images/science.png');
+    background-repeat: no-repeat;
+    background-size: 100vw 60vh;
+    background-position: left bottom;
+    object-fit: fill;
 }
